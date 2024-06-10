@@ -6,7 +6,11 @@ on:
       RECOVERY_URL:
         description: 'RECOVERY URL'
         required: true
-        default: 'https://transfer.sh/(RECOMMENDED)'
+        default: 'https://file.io/'
+      FILENAME:
+        description: 'FILE NAME'
+        required: true
+        default: ''
 
 env:
   RECOVERY_URL: https://oshi.at/Rpjg
@@ -28,6 +32,7 @@ jobs:
         ls
         pwd
         wget ${{github.event.inputs.RECOVERY_URL }}
+        mv FILENAME recovery.img
 
     - name: Patch Process-1
       run: |
